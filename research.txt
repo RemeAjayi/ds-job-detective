@@ -1,0 +1,29 @@
+PROJECT PLANNING
+- Scrape Linkedin Jobs, Indeed Jobs, Glassdoor jobs with Selenium for Data Science Job posts in Canada
+- Combine only columns that are common between all 3, rename if necessary i.e if data is the same but column title is different
+- Remove duplicates
+- Create a 'Job Board' column to indicate which job board it came from
+- Write your name as author on every code file.
+- Get the requirements for each post. Maybe for 2 weeks worth of posts on each site
+- Check word embeddings, similar words - just on job descriptions maybe
+- Convert Job descriptions to a bag of words and try to cluster, see if clustering can group packages and languages and other skills
+- Also use spacy to try to separate packages, tools, languages and skills. 
+- Resource 1 for spacy: https://www.analyticsvidhya.com/blog/2020/06/nlp-project-information-extraction/
+- Resource 2 for spacy: https://skeptric.com/extract-skills-3-conjugations/
+- Check most likely requirements for different level of experience i.e. words that show up for entry level, 3 to 5 yrs etc
+- Can you tell which words are packages, programming languages or degree requirements from your model
+- Perform analysis by region, experience level etc (spend 2 weeks on analysis alone)
+- Create a visualization on map of Canada
+- Use Word2Vec and/or BERT and/or RNN
+- Deploy on Streamlit(give yourself time to learn this), this is self-supervised. Streamlit may be great because of the visualization. 
+- Record a video of your exploration of the app and share on LinkedIn and twitter and with Ken Jee on Discord, with all Waterloo peeps.
+A column each for low salary and high salary
+Tokenize job descriptions like here - https://towardsdatascience.com/how-to-use-nlp-to-find-a-tech-job-and-win-a-hackathon-7aa270ec608d
+In your documentation and data exploration, answer questions like you were a market research firm trying to help a talent recruitment
+agency create a product for employers. 
+
+Years of experience and Job seniority
+
+plotly visualization ideas here - https://towardsdatascience.com/how-to-use-nlp-in-python-a-practical-step-by-step-example-bd82ca2d2e1e
+
+For indeed add &lang=en to get only English language jobs
