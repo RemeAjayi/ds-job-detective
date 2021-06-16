@@ -1,8 +1,12 @@
 PROJECT PLANNING
+GOAL is information extraction and pattern finding
 - Scrape Linkedin Jobs, Indeed Jobs, Glassdoor jobs with Selenium for Data Science Job posts in Canada
 - Combine only columns that are common between all 3, rename if necessary i.e if data is the same but column title is different
 - Remove duplicates
 - Create a 'Job Board' column to indicate which job board it came from
+- do POS tagging with nltk, visualize with yellowbrick
+- Understand N-grams
+- Document what you did on Medium draft, write one article after every stage
 - Write your name as author on every code file.
 - Get the requirements for each post. Maybe for 2 weeks worth of posts on each site
 - Check word embeddings, similar words - just on job descriptions maybe

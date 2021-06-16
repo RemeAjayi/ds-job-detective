@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 """
 Created on Thu Jun 10 20:20:47 2021
-Credit: 
+Credit: Bonnie Ma 
+https://towardsdatascience.com/web-scraping-job-postings-from-indeed-com-using-selenium-5ae58d155daf
 @author: olohireme
 """
 import pandas as pd
@@ -22,7 +23,7 @@ advanced_search.click()
 
 #search data science 
 search_job = driver.find_element_by_xpath('//input[@id="as_and"]')
-search_job.send_keys(['data science'])
+search_job.send_keys(['data scientist'])
 #set display limit of 30 results per page
 display_limit = driver.find_element_by_xpath('//select[@id="limit"]//option[@value="50"]')
 display_limit.click()
@@ -48,7 +49,7 @@ descriptions=[]
 jobs = []
 
 
-for i in range(0,11):
+for i in range(0,8):
     
     job_card = driver.find_elements_by_xpath('//div[contains(@class,"clickcard")]')
     
@@ -75,10 +76,19 @@ for i in range(0,11):
         try:
             title  = job.find_element_by_xpath('.//h2[@class="title"]//a').text
         except:
-            title = job.find_element_by_xpath('.//h2[@class="title"]//a').get_attribute(name="title")
+            try:
+                title = job.find_element_by_xpath('.//h2[@class="title"]//a').get_attribute(name="title")
+            except:
+                title="None"
         
-        link = job.find_element_by_xpath('.//h2[@class="title"]//a').get_attribute(name="href")
-        company = job.find_element_by_xpath('.//span[@class="company"]').text
+        try:
+            link = job.find_element_by_xpath('.//h2[@class="title"]//a').get_attribute(name="href")
+        except:
+            link = "None"
+        try:
+            company = job.find_element_by_xpath('.//span[@class="company"]').text
+        except:
+            company = "None"
         
         jobs.append({"Job Title" : title,
             "Salary Estimate" : salary,
@@ -87,11 +97,12 @@ for i in range(0,11):
             "Company Name" : company,
             "Location" : location
             })
-    
+        
+    if i == 10:
+        continue
     try:
         next_page = driver.find_element_by_xpath('//a[@aria-label={}]//span[@class="pn"]'.format(i+2))
         next_page.click()
-
     except:
         next_page = driver.find_element_by_xpath('//a[@aria-label="Next"]//span[@class="np"]')
         next_page.click()
@@ -101,7 +112,10 @@ for i in range(0,11):
 descriptions=[]
 for job in jobs:
     driver.get(job["Job Description"])
-    jd = driver.find_element_by_xpath('//div[@id="jobDescriptionText"]').text
+    try:
+        jd = driver.find_element_by_xpath('//div[@id="jobDescriptionText"]').text
+    except:
+        jd = "None"
     descriptions.append(jd)
     job["Job Description"] = jd
 
