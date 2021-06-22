@@ -24,7 +24,8 @@ def get_jobs(keyword, num_jobs, verbose):
     driver = webdriver.Chrome(executable_path=path, options=options)
     driver.set_window_size(1120, 1000)
     
-    url = 'https://www.glassdoor.com/Job/jobs.htm?suggestCount=0&suggestChosen=false&clickSource=searchBtn&typedKeyword=&typedLocation=canada&locT=N&locId=3&jobType=&context=Jobs&sc.keyword=data+scientist&dropdown=0'
+    url = 'https://www.glassdoor.ca/Job/canada-data-scientist-jobs-SRCH_IL.0,6_IN3_KO7,21.htm'
+    #url = 'https://www.glassdoor.com/Job/jobs.htm?suggestCount=0&suggestChosen=false&clickSource=searchBtn&typedKeyword=&typedLocation=canada&locT=N&locId=3&jobType=&context=Jobs&sc.keyword=data+scientist&dropdown=0'
     driver.get(url)
     jobs = []
 
@@ -66,7 +67,7 @@ def get_jobs(keyword, num_jobs, verbose):
                 company_name = driver.find_element_by_xpath('.//div[@class="css-87uc0g e1tk4kwz1"]').text
                 location = driver.find_element_by_xpath('.//div[@class="css-56kyx5 e1tk4kwz5"]').text
                 job_title = driver.find_element_by_xpath('.//div[@class= "css-1vg6q84 e1tk4kwz4"]').text
-                job_description = driver.find_element_by_xpath('.//div[@class="jobDescriptionContent desc"]').text
+                job_description = driver.find_element_by_xpath('.//div[@class="jobDescriptionContent desc"]').get_attribute("innerText")
        #         collected_successfully = True
             except:
                 time.sleep(5)
@@ -88,9 +89,11 @@ def get_jobs(keyword, num_jobs, verbose):
             "Location" : location
             })
             
+        print('should move to next page')    
         #Clicking on the "next page" button
         try:
             driver.find_element_by_xpath('.//li[@class="css-1yshuyv e1gri00l3"]//a').click()
+            print('moved to next page')
         except NoSuchElementException:
             print("Scraping terminated before reaching target number of jobs. Needed {}, got {}.".format(num_jobs, len(jobs)))
             break

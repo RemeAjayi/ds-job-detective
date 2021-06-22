@@ -37,11 +37,9 @@ df_indeed = df_indeed[["Job Title","Company Name", "Job Description", "Location"
 #remove duplicates, where Job Title and Company Name and Location are the same among rows
 df_indeed = df_indeed.drop_duplicates(subset=['Job Title', 'Company Name', 'Location'], keep='first')
 
-df_glass_1 = pd.read_csv('backups/glassdoor_1.csv')
-df_glass_2 = pd.read_csv('backups/glassdoor_2.csv')
-#One is enough, but I ran the scraper on two  separate days in order to get new jobs
 
-df_glass = pd.concat([df_glass_1, df_glass_2],ignore_index=True, join="inner")
+#Using only latest glassdoor csv
+df_glass = pd.read_csv('backups/glassdoor_4.csv')
 #remove redundant columns
 df_glass = df_glass[["Job Title","Company Name", "Job Description", "Location"]]
 
