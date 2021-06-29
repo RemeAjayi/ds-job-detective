@@ -1,31 +1,19 @@
 PROJECT PLANNING
 
-Jun 18 - Jun 28, Do Info Extraction techniques in following articles 
-1) Follow steps in https://github.com/WomenWhoCode/WWCodeDataScience/blob/master/Intro_to_NLP/3_NLP_DeepDive2.ipynb
+Jun 30 - Jul 5
+- Clone, run and understand https://github.com/dnikolic98/CV-skill-extraction 
+- Remove french text in data cleaning
+- Adapt https://towardsdatascience.com/deep-learning-for-specific-information-extraction-from-unstructured-texts-12c5b9dceada
+and the github in step 1 for skill extraction
 
-2) https://neptune.ai/blog/exploratory-data-analysis-natural-language-processing-tools
-
-3) https://towardsdatascience.com/how-i-used-natural-language-processing-to-extract-context-from-news-headlines-df2cf5181ca6
-
-4) https://towardsdatascience.com/named-entity-recognition-with-nltk-and-spacy-8c4a7d88e7da
-
-5) https://www.geeksforgeeks.org/feature-extraction-techniques-nlp/
-
-6) https://www.kdnuggets.com/2017/05/deep-learning-extract-knowledge-job-descriptions.html
-
-In Separate Notebook, give author credit
-
-7) https://nikkisharma536.medium.com/white-paper-job-skills-extraction-with-lstm-and-word-embeddings-d71d1f96024f
-
-8) https://medium.com/mlearning-ai/how-to-automate-job-searches-using-named-entity-recognition-part-1-16c150acafa0
-
-9) In Separate Notebook, give author credit- 
-file:///Users/olohireme/Documents/Data%20Science%20Projects/ds-job-detective/articles/applsci-09-02852.pdf
- 
+Jul 5 - Jul 12
+- Use Mode to get the top 10 skills
+- Write ReadMe, Medium 
+- Possibly deploy on Streamlit
+- Add to CV, and LinkedIn
 
 
-
-
+DO NOT DO ANYTHING ELSE TO PREVENT SCOPE EXPLOSION
 
 
 GOAL is information extraction and pattern finding
