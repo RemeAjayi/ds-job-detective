@@ -39,12 +39,24 @@ def training_set(chunks):
     # only returns 10% of each dataframe to be used 
     return df.phrase.sample(frac = 0.1)
 
+def strip_commas(df):
+    '''create new series of individual n-grams'''
+    grams = []
+    for sen in df:
+        sent = sen.split(',')
+        for word in sent:
+            grams.append(word)
+    return pd.Series(grams)
+
+c = training_set(chunks4)       
+separated_chunks4 = strip_commas(c)
+
 # one training corpus with 10% of each POS regex identification
 training = pd.concat([training_set(chunks1),
                       training_set(chunks2), 
                       training_set(chunks3),
-                      training_set(chunks4)], 
+                      separated_chunks4], 
                         ignore_index = True )
 
-training.to_csv('outputs/np_train_skills.csv')
-print("'np_train_skills.csv' has been created")
+training.to_csv('outputs/np_train_skills_no_commas.csv')
+print("'np_train_skills_no_commas.csv' has been created")
