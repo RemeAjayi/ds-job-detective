@@ -2,3 +2,4 @@
 .ipynb_checkpoints
 .DS_Store
 .ipynb_checkpoints/EDA-checkpoint.ipynb
+GloVe/glove.6B.100d.txt
