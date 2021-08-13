@@ -90,6 +90,7 @@ To use this project, first clone the repo on your device using the command below
 - Stage 2: Performed Exploratory Data analysis in EDA.ipynb
 - Stage 3: Performed Rule Based Skill Extraction using Spacy in skill_extraction.ipynb
 - Stage 4: Using LSTM, performed predictive skill extraction
+- Stage 5: Using BERT, performed predictive skill extraction
 
 
 
