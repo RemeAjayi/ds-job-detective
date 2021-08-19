@@ -184,4 +184,5 @@ with st.form(key='my_form'):
 
 if submit:
     skills = get_predictions(desc)
-    st.write(f'Here are your skills {skills}')
+    st.caption(f'Here are your skills')
+    st.table(skills)
