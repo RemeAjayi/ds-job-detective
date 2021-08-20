@@ -11,8 +11,6 @@ backcall==0.2.0
 backports.functools-lru-cache==1.6.4
 backports.zoneinfo==0.2.1
 base58==2.1.0
-bert-for-tf2==0.14.9
-bert-tensorflow==1.0.4
 bleach==3.3.0
 blinker==1.4
 cached-property==1.5.2

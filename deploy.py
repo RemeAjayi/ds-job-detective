@@ -173,7 +173,7 @@ def get_predictions_excel(filename):
     #throw error if column name does not exist or file format is wrong
 
 
-header = st.beta_container()
+header = st.container()
 
 with header:
     st.title('Skill Extraction with LSTM')
