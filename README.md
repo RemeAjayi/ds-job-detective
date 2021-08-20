@@ -94,13 +94,13 @@ To use this project, first clone the repo on your device using the command below
 
 
 
-# Footer
+# Demo
 [(Back to top)](#table-of-contents)
 
 <!-- Let's also add a footer because I love footers and also you **can** use this to convey important info.
 
 Let's make it an image because by now you have realised that multimedia in images == cool(*please notice the subtle programming joke). -->
-
+You can find the Demo [Demo](https://share.streamlit.io/remeajayi/ds-job-detective/main/deploy.py) here
 Leave a star in GitHub, give a clap in Medium and share this guide if you found this helpful.
 
 <!-- Add the footer here -->
