@@ -156,7 +156,7 @@ def get_predictions(desc):
     corpus=create_corpus(phrases)
     corpus_pad = create_padded_inputs(corpus)
     #get predicted classes
-    predictions = (model.predict(corpus_pad) > 0.65).astype('int32')
+    predictions = (model.predict(corpus_pad) > 0.75).astype('int32')
     #return predicted skills as list
     out = pd.DataFrame({'Phrase':phrases, 'Class':predictions.ravel()})
     skills = out.loc[out['Class'] == 1]
