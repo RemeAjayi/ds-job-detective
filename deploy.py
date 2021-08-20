@@ -103,7 +103,7 @@ def training_set(chunks):
 
     # only returns 10% of each dataframe to be used 
     # Update: only do 50% if running on excel
-    return df.phrase.sample(frac = 0.3)
+    return df.phrase
 
 def strip_commas(df):
     '''create new series of individual n-grams'''
@@ -156,7 +156,7 @@ def get_predictions(desc):
     corpus=create_corpus(phrases)
     corpus_pad = create_padded_inputs(corpus)
     #get predicted classes
-    predictions = (model.predict(corpus_pad) > 0.5).astype('int32')
+    predictions = (model.predict(corpus_pad) > 0.65).astype('int32')
     #return predicted skills as list
     out = pd.DataFrame({'Phrase':phrases, 'Class':predictions.ravel()})
     skills = out.loc[out['Class'] == 1]
