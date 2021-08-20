@@ -106,7 +106,7 @@ scikit-learn==0.24.2
 scipy==1.7.0
 seaborn==0.11.2
 Send2Trash==1.7.1
-setuptools==49.6.0.post20210108
+setuptools
 six==1.15.0
 smmap==4.0.0
 streamlit==0.86.0
