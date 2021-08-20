@@ -5,7 +5,7 @@
 <!-- Add buttons here -->
 
 <!-- Describe your project in brief -->
-Getting your dream Data Science Job is a great motivation for developing a Data Science Roadmap. How do you develop a Roadmap without knowing the relevant skills and tools to Learn. In this project, I will explore over 800 Data Science Job postings in Canada. The data used has been collected from postings on Glassdoor and Indeed in early June, 2021.
+Getting your dream Data Science Job is a great motivation for developing a Data Science Roadmap. How do you develop a Roadmap without knowing the relevant skills and tools to Learn. In this project, I will explore over 800 Data Science Job postings in Canada. The data used was collected from postings on Glassdoor and Indeed in early June, 2021.
 
 
 # Table of contents
@@ -42,7 +42,9 @@ Here is a sample TOC(*wow! such cool!*) that is actually the TOC for this README
 <!-- Let's also add a footer because I love footers and also you **can** use this to convey important info.
 
 Let's make it an image because by now you have realised that multimedia in images == cool(*please notice the subtle programming joke). -->
-You can find the [Demo](https://share.streamlit.io/remeajayi/ds-job-detective/main/deploy.py) here
+You can find the [Demo](https://share.streamlit.io/remeajayi/ds-job-detective/main/deploy.py) here.
+
+
 Leave a star in GitHub, give a clap in Medium and share this guide if you found this helpful.
 
 <!-- Add the footer here -->
