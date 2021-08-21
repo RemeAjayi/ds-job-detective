@@ -178,6 +178,10 @@ header = st.container()
 with header:
     st.title('Skill Extraction with LSTM')
 
+st.text('A machine learning model to extract skills from job description.')
+st.text('You can use it by typing a job description or pasting one from your favourite job board.')
+
+
 with st.form(key='my_form'):
 	desc = st.text_input(label='Enter a Job Description')
 	submit = st.form_submit_button(label='Submit')
