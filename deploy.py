@@ -178,7 +178,7 @@ header = st.container()
 with header:
     st.title('Skill Extraction with LSTM')
 
-st.text('A machine learning model to extract skills from job description.')
+st.text('A machine learning model to extract skills from job descriptions.')
 st.text('You can use it by typing a job description or pasting one from your favourite job board.')
 
 
