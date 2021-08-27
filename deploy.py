@@ -24,6 +24,15 @@ nltk.download('stopwords')
 from nltk.corpus import stopwords
 stop_words = set(stopwords.words('english'))
 from nltk.tokenize import word_tokenize
+#spacy
+import spacy
+from spacy.util import filter_spans
+from spacy.tokens import Span
+from spacy.matcher import Matcher
+
+import en_core_web_sm
+nlp = en_core_web_sm.load()
+
 
 #clean desc
 def clean(desc):
@@ -172,6 +181,48 @@ def get_predictions_excel(filename):
 
     #throw error if column name does not exist or file format is wrong
 
+#methods for rule-based model
+def get_left_span(tok, label='', include=True):
+    offset = 1 if include else 0
+    idx = tok.i
+    while idx > tok.left_edge.i:
+        if tok.doc[idx - 1].pos_ in ('NOUN', 'PROPN', 'ADJ', 'X'):
+            idx -= 1
+        else:
+            break
+    return label, idx, tok.i+offset
+
+def get_conjugations(tok):
+    new = [tok]
+    while new:
+        tok = new.pop()
+        yield tok
+        for child in tok.children:
+            if child.dep_ == 'conj':
+                new.append(child)
+
+EXP_TERMS = ['experience']
+def extract_adp_conj_experience(doc, label='EXPERIENCE'):
+    for tok in doc:
+        if tok.lower_ in EXP_TERMS:
+            for child in tok.rights:
+                if child.dep_ == 'prep':
+                    for obj in child.children:
+                        if obj.dep_ == 'pobj':
+                            for conj in get_conjugations(obj):
+                                yield get_left_span(conj, label)
+
+def get_extractions(examples, *extractors):
+    # Could use context instead of enumerate
+    doc = nlp(examples, disable=['ner'])
+    for ent in filter_spans([Span(doc, start, end, label) for extractor in extractors for label, start, end in extractor(doc)]):
+        sent = ent.root.sent
+        yield ent.text
+
+
+def list_skills(examples, *extractors):
+    return list(get_extractions(examples, *extractors))
+
 
 header = st.container()
 
@@ -183,10 +234,18 @@ st.text('You can use it by typing a job description or pasting one from your fav
 
 
 with st.form(key='my_form'):
-	desc = st.text_input(label='Enter a Job Description')
+	desc = st.text_area(label='Enter a Job Description', height=300)
 	submit = st.form_submit_button(label='Submit')
 
 if submit:
-    skills = get_predictions(desc)
+    skills_1 = get_predictions(desc)
+    skills_2 = list_skills(desc, extract_adp_conj_experience)
     st.caption(f'Here are your skills')
-    st.table(skills)
+
+    col1, col2 = st.columns(2)
+
+    col1.header("LSTM")
+    col1.table(skills_1)
+
+    col2.header("Rule-Based")
+    col2.table(skills_2)

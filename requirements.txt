@@ -107,6 +107,7 @@ Send2Trash==1.7.1
 setuptools
 six==1.15.0
 smmap==4.0.0
+spacy
 streamlit==0.86.0
 tensorboard==2.5.0
 tensorboard-data-server==0.6.1

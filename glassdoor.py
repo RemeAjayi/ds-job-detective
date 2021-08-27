@@ -25,7 +25,6 @@ def get_jobs(keyword, num_jobs, verbose):
     driver.set_window_size(1120, 1000)
     
     url = 'https://www.glassdoor.ca/Job/canada-data-scientist-jobs-SRCH_IL.0,6_IN3_KO7,21.htm'
-    #url = 'https://www.glassdoor.com/Job/jobs.htm?suggestCount=0&suggestChosen=false&clickSource=searchBtn&typedKeyword=&typedLocation=canada&locT=N&locId=3&jobType=&context=Jobs&sc.keyword=data+scientist&dropdown=0'
     driver.get(url)
     jobs = []
 
