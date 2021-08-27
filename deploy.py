@@ -26,10 +26,10 @@ stop_words = set(stopwords.words('english'))
 from nltk.tokenize import word_tokenize
 #comment spacy imports locally because of incompatibility with numpy 1.19.5
 #spacy
-import spacy
+"""import spacy
 from spacy.util import filter_spans
 from spacy.tokens import Span
-from spacy.matcher import Matcher
+from spacy.matcher import Matcher"""
 
 import en_core_web_sm
 nlp = spacy.load(en_core_web_sm)
@@ -183,7 +183,7 @@ def get_predictions_excel(filename):
 
 #comment spacy imports locally because of incompatibility with numpy 1.19.5
 #methods for rule-based model
-def get_left_span(tok, label='', include=True):
+"""def get_left_span(tok, label='', include=True):
     offset = 1 if include else 0
     idx = tok.i
     while idx > tok.left_edge.i:
@@ -224,7 +224,7 @@ def get_extractions(examples, *extractors):
 def list_skills(examples, *extractors):
     return list(get_extractions(examples, *extractors))
 
-
+"""
 header = st.container()
 
 with header:
@@ -239,6 +239,11 @@ with st.form(key='my_form'):
 	submit = st.form_submit_button(label='Submit')
 
 if submit:
+    skills = get_predictions(desc)
+    st.caption(f'Here are your skills')
+    st.table(skills)
+    
+"""if submit:
     skills_1 = get_predictions(desc)
     skills_2 = list_skills(desc, extract_adp_conj_experience)
     st.caption(f'Here are your skills')
@@ -250,4 +255,4 @@ if submit:
 
 #comment spacy imports locally because of incompatibility with numpy 1.19.5
     col2.header("Rule-Based")
-    col2.table(skills_2)
+    col2.table(skills_2)"""
