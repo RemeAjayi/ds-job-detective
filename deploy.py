@@ -24,6 +24,7 @@ nltk.download('stopwords')
 from nltk.corpus import stopwords
 stop_words = set(stopwords.words('english'))
 from nltk.tokenize import word_tokenize
+#comment spacy imports locally because of incompatibility with numpy 1.19.5
 #spacy
 import spacy
 from spacy.util import filter_spans
@@ -31,7 +32,7 @@ from spacy.tokens import Span
 from spacy.matcher import Matcher
 
 import en_core_web_sm
-nlp = en_core_web_sm.load()
+nlp = spacy.load(en_core_web_sm)
 
 
 #clean desc
@@ -171,7 +172,6 @@ def get_predictions(desc):
     skills = out.loc[out['Class'] == 1]
     return skills['Phrase'].tolist()
 
-#test with predictions on ketter's repo
 def get_predictions_excel(filename):
     """description column must be titled Job Desc"""
     df = pd.read_csv(filename)
@@ -181,6 +181,7 @@ def get_predictions_excel(filename):
 
     #throw error if column name does not exist or file format is wrong
 
+#comment spacy imports locally because of incompatibility with numpy 1.19.5
 #methods for rule-based model
 def get_left_span(tok, label='', include=True):
     offset = 1 if include else 0
@@ -247,5 +248,6 @@ if submit:
     col1.header("LSTM")
     col1.table(skills_1)
 
+#comment spacy imports locally because of incompatibility with numpy 1.19.5
     col2.header("Rule-Based")
     col2.table(skills_2)
