@@ -226,7 +226,7 @@ def get_predictions_excel(filename):
 #     return list(get_extractions(examples, *extractors))
 
 
-header = st.container()
+header = st.beta_container()
 
 with header:
     st.title('Skill Extraction with LSTM')
