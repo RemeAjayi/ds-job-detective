@@ -37,6 +37,7 @@ Here is a sample TOC(*wow! such cool!*) that is actually the TOC for this README
 - Stage 5: Use saved LSTM and Rule-Based model to predict unseen text (i.e. Text that was not in the dataset) in job_skills_extraction_pipeline.ipynb
 - Stage 6: Streamlit deployment code in  deploy.py
 
+To run locally - `streamlit run deploy.py`
 
 
 # Demo 
